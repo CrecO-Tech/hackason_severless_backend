@@ -1,0 +1,54 @@
+org: nagisa
+app: ky-backend
+service: ky-backend
+
+provider:
+  name: aws
+  runtime: python3.11 # Ensure that this runtime version is supported by AWS Lambda.
+  timeout: 500 # タイムアウトを30秒に設定
+
+functions:
+  hello:
+    handler: handler.hello
+    events:
+      - httpApi:
+          path: /
+          method: get
+
+  question1:
+    handler: handler.question1
+    events:
+      - httpApi:
+          path: /question1
+          method: post
+
+  question2:
+    handler: handler.question2
+    events:
+      - httpApi:
+          path: /question2
+          method: post
+
+  question3:
+    handler: handler.question3
+    events:
+      - httpApi:
+          path: /question3
+          method: post
+
+  question4:
+    handler: handler.question4
+    events:
+      - httpApi:
+          path: /question4
+          method: post
+
+plugins:
+  - serverless-offline
+  - serverless-python-requirements
+
+custom:
+  serverless-offline:
+    useChildProcesses: true
+    watch:
+      - "**/*.py"

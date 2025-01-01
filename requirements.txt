@@ -1,0 +1,15 @@
+requests
+fastapi
+uvicorn
+firebase-admin
+pydantic
+numpy==1.23.5
+opencv-python-headless==4.10.0.84
+Pillow
+torch
+torchvision
+deepface
+tensorflow==2.16.1
+tensorboard==2.16.0
+yolov5
+ultralytics
