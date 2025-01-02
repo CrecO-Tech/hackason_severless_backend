@@ -4,8 +4,11 @@ service: ky-backend
 
 provider:
   name: aws
-  runtime: python3.11 # Ensure that this runtime version is supported by AWS Lambda.
-  timeout: 500 # タイムアウトを30秒に設定
+  runtime: python3.10 # Ensure that this runtime version is supported by AWS Lambda.
+  timeout: 30 # タイムアウトを30秒に設定
+  stage: dev
+  region: ap-northeast-1
+  profile: nislab
 
 functions:
   hello:
@@ -46,9 +49,3 @@ functions:
 plugins:
   - serverless-offline
   - serverless-python-requirements
-
-custom:
-  serverless-offline:
-    useChildProcesses: true
-    watch:
-      - "**/*.py"
